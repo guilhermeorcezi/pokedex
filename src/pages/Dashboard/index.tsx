@@ -50,9 +50,11 @@ const Dashboard: React.FC = () => {
 
       try {
         const response = await api.get(`pokemon/${searchValue}`);
-        console.log(response.data);
-        setPokemons(response.data);
-      } catch (err) { }
+        setPokemons([response.data]);
+        setSearchValue('');
+      } catch (err) {
+        setSearchValue('');
+       }
     },
     [searchValue],
   );
