@@ -13,20 +13,20 @@ export const Container = styled.div`
   padding: 20px 10px;
 
   img {
-    max-width: 70px;
+    max-width: 130px;
   }
 `;
 
 export const PokemonTitle = styled.h1`
-  text-transform:uppercase;
+  text-transform: uppercase;
 `;
 
 export const PokemonTypes = styled.div`
   display: flex;
   margin-top: 10px;
 
-  span{
-  text-transform:uppercase;
+  span {
+    text-transform: uppercase;
   }
 
   span + span {

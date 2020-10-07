@@ -4,7 +4,13 @@ import { FiSearch } from 'react-icons/fi';
 import PokemonCard from '../../components/PokemonCard';
 import api from '../../services/api';
 
-import { Container, Header, InputSearch, Content } from './styles';
+import {
+  Container,
+  Header,
+  SearchContainer,
+  Content,
+  FormFilter,
+} from './styles';
 
 interface IType {
   type: {
@@ -15,11 +21,7 @@ export interface IPokemon {
   name: string;
   id: number;
   sprites: {
-    other: {
-      dream_world: {
-        front_default: string;
-      };
-    };
+    front_default: string;
   };
   types: IType[];
 }
@@ -27,10 +29,11 @@ export interface IPokemon {
 const Dashboard: React.FC = () => {
   const [pokemons, setPokemons] = useState<IPokemon[]>([]);
   const [searchValue, setSearchValue] = useState('');
+  const [type, setType] = useState('');
 
   useEffect(() => {
-    async function loadPokemons() {
-      const response = await api.get('pokemon?limit=100');
+    async function loadPokemons(): Promise<void> {
+      const response = await api.get('pokemon?limit=150');
 
       const getPokemons = response.data.results;
 
@@ -54,15 +57,40 @@ const Dashboard: React.FC = () => {
         setSearchValue('');
       } catch (err) {
         setSearchValue('');
-       }
+      }
     },
     [searchValue],
+  );
+
+  const handleFilterPokemon = useCallback(
+    async (e: FormEvent) => {
+      e.preventDefault();
+      if (Number(type) === 0) return;
+
+      setPokemons([]);
+
+      try {
+        const response = await api.get(`type/${type}`);
+
+        const getPokemons = response.data.pokemon;
+
+        getPokemons.map(async (poke: any) => {
+          const newResponse = await api.get(`${poke.pokemon.url}`);
+
+          setPokemons(state => [...state, newResponse.data]);
+          setSearchValue('');
+        });
+      } catch (err) {
+        setSearchValue('');
+      }
+    },
+    [type],
   );
 
   return (
     <Container>
       <Header>
-        <InputSearch>
+        <SearchContainer>
           <form onSubmit={handleSearchPokemon}>
             <input
               name="search"
@@ -70,12 +98,36 @@ const Dashboard: React.FC = () => {
               placeholder="Pesquisar"
               value={searchValue}
               onChange={e => setSearchValue(e.target.value)}
+              required
             />
             <button type="submit">
               <FiSearch />
             </button>
           </form>
-        </InputSearch>
+
+          <FormFilter onSubmit={handleFilterPokemon}>
+            <select value={type} onChange={e => setType(e.target.value)}>
+              <option value="0" selected>
+                Tipo
+              </option>
+              <option value="1">Normal</option>
+              <option value="2">Fighting</option>
+              <option value="3">Flying</option>
+              <option value="4">Poison</option>
+              <option value="5">Ground</option>
+              <option value="6">Rock</option>
+              <option value="7">Bug</option>
+              <option value="8">Ghost</option>
+              <option value="9">Steel</option>
+              <option value="10">Fire</option>
+              <option value="11">Water</option>
+              <option value="12">Grass</option>
+              <option value="13">Electric</option>
+              <option value="14">Psychic</option>
+            </select>
+            <button type="submit">filtrar</button>
+          </FormFilter>
+        </SearchContainer>
       </Header>
 
       <Content>

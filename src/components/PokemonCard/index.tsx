@@ -11,10 +11,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => (
   <>
     <Container>
       <PokemonTitle>{pokemon.name}</PokemonTitle>
-      <img
-        src={`${pokemon.sprites.other.dream_world.front_default}`}
-        alt={pokemon.name}
-      />
+      <img src={`${pokemon.sprites.front_default}`} alt={pokemon.name} />
       <PokemonTypes>
         {pokemon.types.map(pokemonType => (
           <span key={pokemonType.type.name}>{pokemonType.type.name}</span>
