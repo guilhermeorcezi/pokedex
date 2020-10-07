@@ -1,44 +1,67 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h3 align="center">
+    <img alt="Verzel Tasks" width="560" title="#logo" src="./github_assets/banner.png">
+    <br>
+</h3>
+<p align="center"> 🚀 <strong>Pokedex</strong>
+ </p>
 
-## Available Scripts
+<p align="center">
+   <img src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
+  <a href="https://github.com/guilhermeorcezi/verzel-tasks#readme">
+    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" target="_blank" />
+  </a>
+  <a href="https://github.com/guilhermeorcezi/verzel-tasks/graphs/commit-activity">
+    <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" target="_blank" />
+  </a>
+  <a href="https://github.com/guilhermeorcezi/verzel-tasks/blob/master/LICENSE">
+    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" target="_blank" />
+  </a>
+</p>
 
-In the project directory, you can run:
+# :pushpin: Table of Contents
 
-### `yarn start`
+- [About](#sobre)
+- [Technologies](#tecnologias-utilizadas)
+- [How to run](#como-usar)
+- [How to Contribute](#como-contribuir)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<a id="sobre"></a>
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## :bookmark: About
 
-### `yarn test`
+The <strong>Pokedex</strong> is a project to consume the Pokemon API and shows data about Pokémon. It's possible to search a Pokémon by it name or filter by the Pokémon type.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## :rocket: Technologies
 
-### `yarn build`
+The project was developed using the following technologies
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [TypeScript](https://www.typescriptlang.org/)
+- [React](https://pt-br.reactjs.org/)
+- [Styled Components](https://styled-components.com/)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## :fire: How to run
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### :exclamation: Front-End (Web Application)
+To start the **application** use the commands after clone this repository:
+```bash
+yarn install // npm install
+yarn start // npm start
+```
+After the process is over, the `localhost: 3000` page containing the developed project will automatically open in your browser.
 
-### `yarn eject`
+### :recycle: How to contribute
+- First, leave a ⭐ if you like it!
+- Fork this repository;
+- Create a branch with your feature: `git checkout -b my-feature`
+- Commit your changes: `git commit -m 'feat: My new feature'`
+- Push your branch: `git push origin my-feature`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## :memo: License
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This project is under the MIT license. See the [licence page](https://opensource.org/licenses/MIT) for more details.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+---
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+<h4 align="center">
+    Made with 💜 by <a href="https://www.linkedin.com/in/guilherme-orcezi" target="_blank">Guilherme Orcezi</a>
+</h4>
