@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useCallback, FormEvent } from 'react';
 
 import { FiSearch } from 'react-icons/fi';
+import { toast } from 'react-toastify';
+
 import PokemonCard from '../../components/PokemonCard';
 import api from '../../services/api';
 
@@ -57,6 +59,7 @@ const Dashboard: React.FC = () => {
         setSearchValue('');
       } catch (err) {
         setSearchValue('');
+        toast.error('Este Pokémon não existe.');
       }
     },
     [searchValue],
